@@ -18,7 +18,7 @@
                                 <th>Paket Soal</th>
                                 <th>Waktu Pelaksanaan</th>
                                 <th>Durasi</th>
-                                <th>Aksi</th>
+                                <th>Nilai</th>
                             </tr>
                         </thead>
                     </table>
@@ -43,7 +43,8 @@
                 {data: 'ujian.paket_soal.nama', name: 'ujian.paketSoal.nama'},
                 {data: 'ujian.waktu_mulai', name: 'ujian.waktu_mulai'},
                 {data: 'ujian.durasi', name: 'ujian.durasi'},
-                {data: 'id'}
+                {data: 'ujian.detail_hasil', name: 'ujian.detail_hasil'},
+                // {data: 'id'}
             ]
         })
     </script>

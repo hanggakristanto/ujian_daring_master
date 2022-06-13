@@ -56,3 +56,4 @@ Route::group(['middleware' => ['auth:siswa']], function () {
 });
 
 // require __DIR__.'/auth.php';
+Route::resource('daftar', DaftarController::class);

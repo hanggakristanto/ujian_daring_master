@@ -41,7 +41,7 @@ class RouteServiceProvider extends ServiceProvider
         $slugAdmin = 'admin';
         if (Schema::hasTable('pengaturan')) {
             $pengaturan = Pengaturan::first();
-            $slugAdmin = $pengaturan->slug_admin;
+            // $slugAdmin = $pengaturan->slug_admin;
         }
 
         $this->configureRateLimiting();
