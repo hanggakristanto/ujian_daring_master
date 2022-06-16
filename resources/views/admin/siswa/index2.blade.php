@@ -18,7 +18,6 @@
                             <th>Rombel</th>
                             <th>Nama</th>
                             <th>NIS</th>
-                            <th>KTP</th>
                             <th>Jenis Kelamin</th>
                             <th>Opsi</th>
                         </tr>
@@ -50,10 +49,6 @@
                     <div class="form-group">
                         <label for="addNis">NIS</label>
                         <input type="text" name="nis" class="form-control" id="addNis" placeholder="Masukan NIS Siswa">
-                    </div>
-                    <div class="form-group">
-                        <label for="addKtp">ktp</label>
-                        <input type="text" name="ktp" class="form-control" id="addKtp" placeholder="Masukan Ktp Siswa">
                     </div>
                     <div class="form-group">
                         <label for="addJenisKelamin">Jenis Kelamin</label>
@@ -90,7 +85,7 @@
                     <div class="form-group">
                         <label for="editNama">Nama Siswa</label>
                         <input type="text" name="nama" class="form-control" id="editNama" placeholder="Masukkan Nama Siswa">
-                    </div>
+                    </div>$value
                     <div class="form-group">
                         <label for="editNis">NIS</label>
                         <input type="text" name="nis" class="form-control" id="editNis" placeholder="Masukan NIS Siswa">
@@ -131,7 +126,6 @@
             {data: 'rombel.nama', name: 'rombel.nama'},
             {data: 'nama'},
             {data: 'nis'},
-            {data: 'ktp'},
             {data: 'jenis_kelamin'},
             {data: 'opsi'}
         ]

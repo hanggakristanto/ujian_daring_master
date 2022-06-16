@@ -42,13 +42,14 @@ class DaftarUjianController extends Controller
                     return '<button type="button" class="btn btn-sm btn-success" disabled>Mulai</button>';
                 }
 
-                return '<button type="button" class="btn btn-sm btn-success btn-mulai" data-id="'.$data->id.'">Mulai</button>';
+                return '<button type="button" class="btn btn-sm btn-success btn-mulai" data-id="' . $data->id . '">Mulai</button>';
             })
             ->rawColumns(['btnMulai'])
             ->make(true);
     }
 
-    public function show(Ujian $ujian) {
+    public function show(Ujian $ujian)
+    {
         $ujian->load('paketSoal');
 
         if ($ujian->token != null) {

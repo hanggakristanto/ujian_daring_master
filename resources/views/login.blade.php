@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,20 +19,21 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
+
 <body class="hold-transition login-page">
-<div class="login-box">
-  <div class="login-logo">
-    <a href="/">{{ $pengaturan->nama_institusi }}</a>
-  </div>
-  <!-- /.login-logo -->
-  <div class="card">
-    <div class="card-body login-card-body">
-      @if ($errors->has('kredensial'))
-      <div class="alert alert-warning">{{ $errors->first('kredensial') }}</div>
-      @endif
-      <form action="{{ route('login.post') }}" method="post">
-        @csrf
-        <div class="form-group mb-3">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="/">{{ $pengaturan->nama_institusi }}</a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="card">
+      <div class="card-body login-card-body">
+        @if ($errors->has('kredensial'))
+        <div class="alert alert-warning">{{ $errors->first('kredensial') }}</div>
+        @endif
+        <form action="{{ route('login.post') }}" method="post">
+          @csrf
+          <div class="form-group mb-3">
             <div class="input-group">
               <input type="text" name="nis" class="form-control @if($errors->has('nis')) is-invalid @endif" placeholder="NIS">
               <div class="input-group-append">
@@ -44,8 +45,8 @@
             @if($errors->has('nis'))
             <span class="small text-danger">{{ $errors->first('nis') }}</span>
             @endif
-        </div>
-        <div class="form-group mb-3">
+          </div>
+          <div class="form-group mb-3">
             <div class="input-group">
               <input type="password" name="password" class="form-control @if($errors->has('nis')) is-invalid @endif" placeholder="Password">
               <div class="input-group-append">
@@ -57,31 +58,32 @@
             @if($errors->has('password'))
             <span class="small text-danger">{{ $errors->first('password') }}</span>
             @endif
-        </div>
-        <div class="row">
-          <!-- /.col -->
-          <div class="col">
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
           </div>
-          <!-- /.col -->
-        </div>
-      </form>
+          <div class="row">
+            <!-- /.col -->
+            <div class="col">
+              <button type="submit" class="btn btn-primary btn-block">Login</button>
+            </div>
+            <!-- /.col -->
+          </div>
+        </form>
 
-      <p class="mb-1">
-        <a href="forgot-password.html">I forgot my password</a>
-      </p>
+        <p class="mb-1">
+          <a href="forgot-password.html">I forgot my password</a>
+        </p>
+      </div>
+      <!-- /.login-card-body -->
     </div>
-    <!-- /.login-card-body -->
   </div>
-</div>
-<!-- /.login-box -->
+  <!-- /.login-box -->
 
-<!-- jQuery -->
-<script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('assets/js/adminlte.min.js') }}"></script>
+  <!-- jQuery -->
+  <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+  <!-- Bootstrap 4 -->
+  <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- AdminLTE App -->
+  <script src="{{ asset('assets/js/adminlte.min.js') }}"></script>
 
 </body>
+
 </html>

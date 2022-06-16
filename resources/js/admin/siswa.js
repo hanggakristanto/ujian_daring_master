@@ -15,6 +15,7 @@ const table = $('#table').DataTable({
         },
         { data: 'nama' },
         { data: 'nis' },
+        { data: 'ktp' },
         { data: 'jenis_kelamin' },
         { data: 'opsi' }
     ]

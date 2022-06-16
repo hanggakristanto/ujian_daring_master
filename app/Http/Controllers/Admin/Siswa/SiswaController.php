@@ -25,8 +25,8 @@ class SiswaController extends Controller
         return DataTables::of(Siswa::with('rombel.kelas'))
             ->addIndexColumn()
             ->addColumn('opsi', function ($data) {
-                return '<button class="btn btn-xs btn-outline-warning btn-edit" data-id="'.$data->id.'" data-rombel-id="'.$data->rombel->id.'" data-rombel-nama="'.$data->rombel->nama.'" data-nama="'.$data->nama.'" data-nis="'.$data->nis.'" data-jenis-kelamin="'.$data->jenis_kelamin.'"><i class="fas fa-edit"></i> Edit</button>
-                <button class="btn btn-xs btn-outline-danger btn-hapus" data-id="'.$data->id.'"><i class="fas fa-trash"></i> Hapus</button>';
+                return '<button class="btn btn-xs btn-outline-warning btn-edit" data-id="' . $data->id . '" data-rombel-id="' . $data->rombel->id . '" data-rombel-nama="' . $data->rombel->nama . '" data-nama="' . $data->nama . '" data-nis="' . $data->nis . '" data-jenis-kelamin="' . $data->jenis_kelamin . '"><i class="fas fa-edit"></i> Edit</button>
+                <button class="btn btn-xs btn-outline-danger btn-hapus" data-id="' . $data->id . '"><i class="fas fa-trash"></i> Hapus</button>';
             })
             ->rawColumns(['opsi'])
             ->make(true);
