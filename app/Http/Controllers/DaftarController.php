@@ -36,6 +36,7 @@ class DaftarController extends Controller
             'wa'   => 'required',
             'jenis_kelamin' => ['required'],
             'ttl' => ['required'],
+            'password' => ['required'],
             'cv'     => 'required|mimes:png,jpg,jpeg,pdf',
             'ktp'     => 'required|mimes:png,jpg,jpeg,pdf',
             'ijazah'     => 'required|mimes:png,jpg,jpeg,pdf',
@@ -49,15 +50,17 @@ class DaftarController extends Controller
         $ktp->storeAs('public/daftar', $ktp->hashName());
         $ijazah->storeAs('public/daftar', $ijazah->hashName());
 
-        $password = '123';
+        // $password = '123';
+        // $password['password'] = Hash::make($request['password']);
         $daftar = Siswa::create([
             'rombel_id' => '1',
             'nama'     => $request->nama,
             'nis'   => $request->email,
             'jenis_kelamin'   => $request->jenis_kelamin,
             'wa'   => $request->wa,
-            // 'password' => Hash::make($request->password),
-            'password' => Hash::make($password),
+            // 'password'   => $request->password,
+            'password' => Hash::make($request->password),
+            // 'password' => Hash::make($request),
             'cv'     => $cv->hashName(),
             'ktp'     => $ktp->hashName(),
             'ijazah'     => $ijazah->hashName(),

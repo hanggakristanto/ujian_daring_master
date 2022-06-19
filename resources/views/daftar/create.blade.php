@@ -42,6 +42,17 @@
                             </div>
 
                             <div class="form-group">
+                                <label class="font-weight-bold">Password</label>
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" rows="5" placeholder="Masukkan Password">{{ old('password') }}</input>
+                                <!-- error message untuk content -->
+                                @error('password')
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
                                 <label class="font-weight-bold">Nomor WA</label>
                                 <input type="number" class="form-control @error('wa') is-invalid @enderror" name="wa" rows="5" placeholder="Masukkan Nomor WA">{{ old('wa') }}</input>
                                 <!-- error message untuk content -->

@@ -35,7 +35,7 @@
           @csrf
           <div class="form-group mb-3">
             <div class="input-group">
-              <input type="text" name="nis" class="form-control @if($errors->has('nis')) is-invalid @endif" placeholder="NIS">
+              <input type="text" name="nis" class="form-control @if($errors->has('nis')) is-invalid @endif" placeholder="Email">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-user"></span>
