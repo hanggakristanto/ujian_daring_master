@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Daftar;
+use App\Models\Siswa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
 class DaftarController extends Controller
@@ -21,21 +23,22 @@ class DaftarController extends Controller
 
 
     /**
-    * store
-    *
-    * @param  mixed $request
-    * @return void
-    */
+     * store
+     *
+     * @param  mixed $request
+     * @return void
+     */
     public function store(Request $request)
     {
         $this->validate($request, [
             'nama'     => 'required',
             'email'   => 'required',
+            'wa'   => 'required',
             'jenis_kelamin' => ['required'],
             'ttl' => ['required'],
-            'cv'     => 'required|image|mimes:png,jpg,jpeg',
-            'ktp'     => 'required|image|mimes:png,jpg,jpeg',
-            'ijazah'     => 'required|image|mimes:png,jpg,jpeg',
+            'cv'     => 'required|mimes:png,jpg,jpeg,pdf',
+            'ktp'     => 'required|mimes:png,jpg,jpeg,pdf',
+            'ijazah'     => 'required|mimes:png,jpg,jpeg,pdf',
         ]);
 
         //upload image
@@ -46,20 +49,24 @@ class DaftarController extends Controller
         $ktp->storeAs('public/daftar', $ktp->hashName());
         $ijazah->storeAs('public/daftar', $ijazah->hashName());
 
-        $daftar = Daftar::create([
+        $password = '123';
+        $daftar = Siswa::create([
+            'rombel_id' => '1',
             'nama'     => $request->nama,
-            'email'   => $request->email,
+            'nis'   => $request->email,
             'jenis_kelamin'   => $request->jenis_kelamin,
-            'ttl'   => $request->ttl,
+            'wa'   => $request->wa,
+            // 'password' => Hash::make($request->password),
+            'password' => Hash::make($password),
             'cv'     => $cv->hashName(),
             'ktp'     => $ktp->hashName(),
             'ijazah'     => $ijazah->hashName(),
         ]);
 
-        if($daftar){
+        if ($daftar) {
             //redirect dengan pesan sukses
-            return redirect()->route('daftar.index')->with(['success' => 'Data Berhasil Disimpan!']);
-        }else{
+            return redirect()->route('login')->with(['success' => 'Data Berhasil Disimpan!']);
+        } else {
             //redirect dengan pesan error
             return redirect()->route('daftar.index')->with(['error' => 'Data Gagal Disimpan!']);
         }
@@ -72,12 +79,12 @@ class DaftarController extends Controller
 
 
     /**
-    * update
-    *
-    * @param  mixed $request
-    * @param  mixed $blog
-    * @return void
-    */
+     * update
+     *
+     * @param  mixed $request
+     * @param  mixed $blog
+     * @return void
+     */
     public function update(Request $request, Blog $blog)
     {
         $this->validate($request, [
@@ -88,18 +95,16 @@ class DaftarController extends Controller
         //get data Blog by ID
         $blog = Blog::findOrFail($blog->id);
 
-        if($request->file('image') == "") {
+        if ($request->file('image') == "") {
 
             $blog->update([
                 'title'     => $request->title,
                 'content'   => $request->content
             ]);
-
-        }
-         else {
+        } else {
 
             //hapus old image
-            Storage::disk('local')->delete('public/blogs/'.$blog->image);
+            Storage::disk('local')->delete('public/blogs/' . $blog->image);
 
             //upload new image
             $image = $request->file('image');
@@ -110,64 +115,57 @@ class DaftarController extends Controller
                 'title'     => $request->title,
                 'content'   => $request->content
             ]);
-
         }
 
-        if($request->file('image1') == "") {
+        if ($request->file('image1') == "") {
 
             $blog->update([
                 'title'     => $request->title,
                 'content'   => $request->content
             ]);
-
-        }
-         else {
+        } else {
 
             //hapus old image
-            Storage::disk('local')->delete('public/blogs/'.$blog->image1);
+            Storage::disk('local')->delete('public/blogs/' . $blog->image1);
 
             //upload new image
             $image1 = $request->file('image1');
             $image1->storeAs('public/blogs', $image1->hashName());
-            
+
 
             $blog->update([
                 'image1'     => $image1->hashName(),
                 'title'     => $request->title,
                 'content'   => $request->content
             ]);
-
         }
-        if($request->file('image2') == "") {
+        if ($request->file('image2') == "") {
 
             $blog->update([
                 'title'     => $request->title,
                 'content'   => $request->content
             ]);
-
-        }
-         else {
+        } else {
 
             //hapus old image
-            Storage::disk('local')->delete('public/blogs/'.$blog->image2);
+            Storage::disk('local')->delete('public/blogs/' . $blog->image2);
 
             //upload new image
             $image2 = $request->file('image2');
             $image2->storeAs('public/blogs', $image2->hashName());
-            
+
 
             $blog->update([
                 'image2'     => $image2->hashName(),
                 'title'     => $request->title,
                 'content'   => $request->content
             ]);
-
         }
 
-        if($blog){
+        if ($blog) {
             //redirect dengan pesan sukses
             return redirect()->route('blog.index')->with(['success' => 'Data Berhasil Diupdate!']);
-        }else{
+        } else {
             //redirect dengan pesan error
             return redirect()->route('blog.index')->with(['error' => 'Data Gagal Diupdate!']);
         }
@@ -175,18 +173,18 @@ class DaftarController extends Controller
 
     public function destroy($id)
     {
-    $blog = Blog::findOrFail($id);
-    Storage::disk('local')->delete('public/blogs/'.$blog->image);
-    Storage::disk('local')->delete('public/blogs/'.$blog->image1);
-    Storage::disk('local')->delete('public/blogs/'.$blog->image2);
-    $blog->delete();
+        $blog = Blog::findOrFail($id);
+        Storage::disk('local')->delete('public/blogs/' . $blog->image);
+        Storage::disk('local')->delete('public/blogs/' . $blog->image1);
+        Storage::disk('local')->delete('public/blogs/' . $blog->image2);
+        $blog->delete();
 
-    if($blog){
-        //redirect dengan pesan sukses
-        return redirect()->route('blog.index')->with(['success' => 'Data Berhasil Dihapus!']);
-    }else{
-        //redirect dengan pesan error
-        return redirect()->route('blog.index')->with(['error' => 'Data Gagal Dihapus!']);
-    }
+        if ($blog) {
+            //redirect dengan pesan sukses
+            return redirect()->route('blog.index')->with(['success' => 'Data Berhasil Dihapus!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('blog.index')->with(['error' => 'Data Gagal Dihapus!']);
+        }
     }
 }

@@ -1,8 +1,7 @@
 <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('home') }}" class="brand-link navbar-primary">
-        <img src="{{ $pengaturan->logo != null ? asset('storage/' . $pengaturan->logo) : '/assets/img/logo.svg' }}" alt="AdminLTE Logo" class="brand-image img-circle"
-           style="opacity: .8">
+        <img src="{{ $pengaturan->logo != null ? asset('storage/' . $pengaturan->logo) : '/assets/img/logo.svg' }}" alt="AdminLTE Logo" class="brand-image img-circle" style="opacity: .8">
         <span class="brand-text text-light">{{ $pengaturan->nama_institusi }}</span>
     </a>
 
@@ -27,19 +26,19 @@
                     UJIAN
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('daftar-ujian') }}" class="nav-link">
+                    <a href="{{ route('daftar-ujian') }}" class="nav-link {{ request()->routeIs('daftar-ujian') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Daftar Ujian</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('riwayat-ujian') }}" class="nav-link">
+                    <a href="{{ route('riwayat-ujian') }}" class="nav-link {{ request()->routeIs('riwayat-ujian') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Riwayat Ujian</p>
                     </a>
                 </li>
 
-                <li class="nav-header">
+                <!-- <li class="nav-header">
                     PENGATURAN
                 </li>
                 <li class="nav-item">
@@ -49,7 +48,7 @@
                             Ganti Password
                         </p>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

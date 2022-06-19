@@ -4,7 +4,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <div class="card">
+        <div class="card table-responsive">
             <div class="card-header">
                 <h4 class="card-title">Riwayat Ujian</h4>
             </div>
@@ -28,5 +28,5 @@
 @endsection
 
 @push('script')
-    <script src="{{ asset('js/admin/riwayat_ujian.js') }}"></script>
+<script src="{{ asset('js/admin/riwayat_ujian.js') }}"></script>
 @endpush

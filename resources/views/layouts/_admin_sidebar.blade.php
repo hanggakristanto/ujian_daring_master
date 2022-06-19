@@ -1,8 +1,7 @@
 <aside class="main-sidebar sidebar-light-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ route('admin.index') }}" class="brand-link navbar-primary">
-        <img src="{{ $pengaturan->logo != null ? asset('storage/' . $pengaturan->logo) : '/assets/img/logo.svg' }}" alt="AdminLTE Logo" class="brand-image img-circle"
-           style="opacity: .8">
+        <img src="{{ $pengaturan->logo != null ? asset('storage/' . $pengaturan->logo) : '/assets/img/logo.svg' }}" alt="AdminLTE Logo" class="brand-image img-circle" style="opacity: .8">
         <span class="brand-text text-light">{{ $pengaturan->nama_institusi }}</span>
     </a>
 
@@ -14,7 +13,7 @@
                 <img src="/assets/img/user.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">Admin</a>
             </div>
         </div>
 
@@ -34,19 +33,19 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="{{ route('rombel.index') }}" class="nav-link {{ request()->routeIs('rombel.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-table"></i>
                         <p>
                             Rombel
                         </p>
                     </a>
-                </li>
+                </li> -->
                 <li class="nav-item">
                     <a href="{{ route('siswa.index') }}" class="nav-link {{ request()->routeIs('siswa.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
-                            Siswa
+                            Peserta
                         </p>
                     </a>
                 </li>
@@ -83,31 +82,31 @@
                     UJIAN
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('ujian.index') }}" class="nav-link">
+                    <a href="{{ route('ujian.index') }}" class="nav-link {{ request()->routeIs('ujian.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Daftar Ujian</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('ujian.riwayat') }}" class="nav-link">
+                    <a href="{{ route('ujian.riwayat') }}" class="nav-link {{ request()->routeIs('ujian.riwayat') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Riwayat Ujian</p>
                     </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
-                            Pengaturan Ujian
+                            Pengaturan Ujian 2
                         </p>
                     </a>
-                </li>
+                </li> -->
 
                 <li class="nav-header">
                     MANAJEMEN APLIKASI
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('pengaturan.index') }}" class="nav-link">
+                    <a href="{{ route('pengaturan.index') }}" class="nav-link {{ request()->routeIs('pengaturan.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Pengaturan

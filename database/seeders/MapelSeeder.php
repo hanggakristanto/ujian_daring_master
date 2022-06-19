@@ -15,12 +15,12 @@ class MapelSeeder extends Seeder
     public function run()
     {
         $arrMapel = [
-            'IND' => 'Bahasa Indonesia',
-            'MTK' => 'Matematika',
-            'IPA' => "Ilmu Pengetahuan Alam",
-            'IPS' => 'Ilmu Pengetahuan Sosial',
-            'PKN' => 'Pendidikan Kewarganegaraan',
-            'PAI' => "Pendidikan Agama Islam"
+            // 'IND' => 'Bahasa Indonesia',
+            // 'MTK' => 'Matematika',
+            'TFZ' => "Tahfidz",
+            // 'IPS' => 'Ilmu Pengetahuan Sosial',
+            // 'PKN' => 'Pendidikan Kewarganegaraan',
+            // 'PAI' => "Pendidikan Agama Islam"
         ];
 
         foreach ($arrMapel as $key => $value) {

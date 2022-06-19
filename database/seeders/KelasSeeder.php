@@ -15,9 +15,9 @@ class KelasSeeder extends Seeder
     public function run()
     {
         $kelas = [
-            'X',
-            'XI',
-            'XII'
+            'TFZ',
+            // 'XI',
+            // 'XII'
         ];
 
         foreach ($kelas as $key => $value) {

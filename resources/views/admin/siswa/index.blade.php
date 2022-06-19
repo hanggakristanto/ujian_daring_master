@@ -10,15 +10,19 @@
                     <button class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modalTambah"><i class="fas fa-plus"></i> Tambah Siswa</button>
                 </div>
             </div>
-            <div class="card-body">
-                <table class="table table-striped text-center display nowrap w-100" id="table">
+            <div class="card-body table-responsive">
+                <table class="table table-striped text-center display nowrap w-100 horizontal-scrollable" id="table">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Rombel</th>
-                            <th>Nama</th>
-                            <th>NIS</th>
+                            <!-- <th>Rombel</th> -->
+                            <th>NAMA</th>
+                            <th>EMAIL</th>
+                            <th>WA</th>
                             <th>KTP</th>
+                            <!-- <th>error</th> -->
+                            <th>IJAZAH</th>
+                            <th>CV</th>
                             <th>Jenis Kelamin</th>
                             <th>Opsi</th>
                         </tr>
@@ -53,7 +57,19 @@
                     </div>
                     <div class="form-group">
                         <label for="addKtp">ktp</label>
-                        <input type="text" name="ktp" class="form-control" id="addKtp" placeholder="Masukan Ktp Siswa">
+                        <input type="text" name="ktp" class="form-control" id="addKtp" placeholder="Masukan Ktp">
+                    </div>
+                    <div class="form-group">
+                        <label for="addEmail">Email</label>
+                        <input type="text" name="email" class="form-control" id="addEmail" placeholder="Masukan Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="addCv">Cv</label>
+                        <input type="text" name="cv" class="form-control" id="addCv" placeholder="Masukan CV">
+                    </div>
+                    <div class="form-group">
+                        <label for="addWa">WhatsApp (WA)</label>
+                        <input type="text" name="wa" class="form-control" id="addWa" placeholder="Masukan Whatsapp">
                     </div>
                     <div class="form-group">
                         <label for="addJenisKelamin">Jenis Kelamin</label>
@@ -119,7 +135,7 @@
 
 @push('script')
 <script src="{{ asset('js/admin/siswa.js') }}"></script>
-{{-- <script>
+<!-- {{-- <script>
     const table = $('#table').DataTable({
         processing: true,
         serverSide: true,
@@ -131,7 +147,7 @@
             {data: 'rombel.nama', name: 'rombel.nama'},
             {data: 'nama'},
             {data: 'nis'},
-            {data: 'ktp'},
+            {data: 'ktp', name: 'ktp'},
             {data: 'jenis_kelamin'},
             {data: 'opsi'}
         ]
@@ -229,5 +245,5 @@
             }
         })
     })
-</script> --}}
+</script> --}} -->
 @endpush

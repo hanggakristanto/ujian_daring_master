@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,83 +29,85 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ asset('assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
   @stack('style')
 </head>
+
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+  <div class="wrapper">
 
-  <!-- Navbar -->
-  @include('layouts._app_header')
-  <!-- /.navbar -->
+    <!-- Navbar -->
+    @include('layouts._app_header')
+    <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  @include('layouts._app_sidebar')
+    <!-- Main Sidebar Container -->
+    @include('layouts._app_sidebar')
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">@yield('title', 'Selamat Datang')</h1>
-          </div>
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0 text-dark">@yield('title', 'Selamat Datang')</h1>
+            </div>
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          @yield('content')
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content -->
     </div>
-    <!-- /.content-header -->
+    <!-- /.content-wrapper -->
 
-    <!-- Main content -->
-    <div class="content">
-      <div class="container-fluid">
-        @yield('content')
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content -->
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <!-- To the right -->
+      <div class="float-right d-none d-sm-inline">
+        Anything you want
+      </div>
+      <!-- Default to the left -->
+      <strong>Copyright &copy; {{ Date('Y') }} <a href="#">meninback</a>.</strong> All rights reserved.
+    </footer>
   </div>
-  <!-- /.content-wrapper -->
+  <!-- ./wrapper -->
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Anything you want
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; {{ Date('Y') }} <a href="#">meninback</a>.</strong> All rights reserved.
-  </footer>
-</div>
-<!-- ./wrapper -->
+  <!-- REQUIRED SCRIPTS -->
 
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap 4 -->
-<script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('assets/js/adminlte.min.js') }}"></script>
-{{-- Sweetalert --}}
-<script src="{{ asset('assets/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
-{{-- DataTable --}}
-<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
-{{-- Select2 --}}
-<script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
-<script>
+  <!-- jQuery -->
+  <script src="{{ asset('assets/plugins/jquery/jquery.min.js') }}"></script>
+  <!-- Bootstrap 4 -->
+  <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <!-- AdminLTE App -->
+  <script src="{{ asset('assets/js/adminlte.min.js') }}"></script>
+  {{-- Sweetalert --}}
+  <script src="{{ asset('assets/plugins/sweetalert2/sweetalert2.min.js') }}"></script>
+  {{-- DataTable --}}
+  <script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+  {{-- Select2 --}}
+  <script src="{{ asset('assets/plugins/select2/js/select2.min.js') }}"></script>
+  <script>
     const URL_ADMIN = "{{ request()->root() . '/' . request()->segment(1) }}"
     $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
     });
 
     // Datatable
-    $.extend( true, $.fn.dataTable.defaults, {
-        language: {
-            url: "{{ asset('assets/plugins/datatables/Indonesian.json') }}"
-        },
+    $.extend(true, $.fn.dataTable.defaults, {
+      language: {
+        url: "{{ asset('assets/plugins/datatables/Indonesian.json') }}"
+      },
     });
     // $.fn.dataTable.ext.errMode = 'throw';
-</script>
-@stack('script')
+  </script>
+  @stack('script')
 </body>
+
 </html>

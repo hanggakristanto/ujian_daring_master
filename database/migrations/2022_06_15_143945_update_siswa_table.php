@@ -15,10 +15,10 @@ class UpdateSiswaTable extends Migration
     {
         Schema::table('siswa', function (Blueprint $table) {
             $table->string('ktp')->nullable();
-            $table->string('email')->nullable();
             $table->string('jk')->nullable();
             $table->string('cv')->nullable();
-            $table->integer('wa')->nullable();
+            $table->string('ijazah')->nullable();
+            $table->string('wa', 20)->nullable();
         });
     }
 
@@ -31,9 +31,9 @@ class UpdateSiswaTable extends Migration
     {
         Schema::table('siswa', function (Blueprint $table) {
             $table->dropColumn('ktp');
-            $table->dropColumn('email');
             $table->dropColumn('jk');
             $table->dropColumn('cv');
+            $table->dropColumn('ijazah');
             $table->dropColumn('wa');
         });
     }

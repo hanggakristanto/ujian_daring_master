@@ -16,9 +16,7 @@ class RombelSeeder extends Seeder
     public function run()
     {
         $arrRombel = [
-            'IPA',
-            'IPS',
-            'Bahasa'
+            'TFZ',
         ];
 
         $kelas = Kelas::get();

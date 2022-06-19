@@ -68,8 +68,12 @@
           </div>
         </form>
 
-        <p class="mb-1">
+        <!-- <p class="mb-1">
           <a href="forgot-password.html">I forgot my password</a>
+        </p> -->
+        <p></p>
+        <p class="mb-1">
+          <a href="{{ route('daftar.create') }}">Daftar Sekarang</a>
         </p>
       </div>
       <!-- /.login-card-body -->
