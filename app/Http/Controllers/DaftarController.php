@@ -72,7 +72,7 @@ class DaftarController extends Controller
         }
     }
 
-    public function edit(Blog $blog)
+    public function edit(Siswa $blog)
     {
         return view('blog.edit', compact('blog'));
     }
@@ -85,7 +85,7 @@ class DaftarController extends Controller
      * @param  mixed $blog
      * @return void
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, Siswa $blog)
     {
         $this->validate($request, [
             'title'     => 'required',
@@ -93,7 +93,7 @@ class DaftarController extends Controller
         ]);
 
         //get data Blog by ID
-        $blog = Blog::findOrFail($blog->id);
+        $blog = Siswa::findOrFail($blog->id);
 
         if ($request->file('image') == "") {
 
@@ -173,7 +173,7 @@ class DaftarController extends Controller
 
     public function destroy($id)
     {
-        $blog = Blog::findOrFail($id);
+        $blog = Siswa::findOrFail($id);
         Storage::disk('local')->delete('public/blogs/' . $blog->image);
         Storage::disk('local')->delete('public/blogs/' . $blog->image1);
         Storage::disk('local')->delete('public/blogs/' . $blog->image2);
